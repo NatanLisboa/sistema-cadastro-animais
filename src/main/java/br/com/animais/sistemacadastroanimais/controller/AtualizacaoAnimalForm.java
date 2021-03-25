@@ -4,10 +4,12 @@ import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 import br.com.animais.sistemacadastroanimais.model.Animal;
 import br.com.animais.sistemacadastroanimais.model.SexoAnimal;
+import br.com.animais.sistemacadastroanimais.repository.AnimalRepository;
 
-public class AnimalForm {
+public class AtualizacaoAnimalForm {
 	
 	@NotNull @NotEmpty
 	private String nome;
@@ -53,9 +55,17 @@ public class AnimalForm {
 		this.sexo = sexo;
 	}
 
-	public Animal converterParaAnimal() {
-		return new Animal(nome, tipo, dataNascimento, sexo);
+	public Animal atualizarAnimal(Long id, AnimalRepository animalRepository) {
+		
+		Animal animal = animalRepository.getOne(id);
+		
+		animal.setNome(this.nome);
+		animal.setTipo(this.tipo);
+		animal.setDataNascimento(this.dataNascimento);
+		animal.setSexo(this.sexo);
+		
+		return animal;
+		
 	}
-	
 	
 }

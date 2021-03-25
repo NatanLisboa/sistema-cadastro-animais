@@ -37,7 +37,5 @@ public class AnimalDto {
 	public static List<AnimalDto> converter(List<Animal> animais) {
 		return animais.stream().map(AnimalDto::new).collect(Collectors.toList());
 	}
-	
-	
-	
+		
 }
