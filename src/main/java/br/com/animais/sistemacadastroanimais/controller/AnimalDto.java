@@ -9,18 +9,24 @@ import br.com.animais.sistemacadastroanimais.model.SexoAnimal;
 
 public class AnimalDto {
 	
+	private long id;
 	private String nome;
 	private String tipo;
 	private LocalDateTime dataNascimento;
 	private SexoAnimal sexo;
 	
 	public AnimalDto(Animal animal) {
+		this.id = animal.getId();
 		this.nome = animal.getNome();
 		this.tipo = animal.getTipo();
 		this.dataNascimento = animal.getDataNascimento();
 		this.sexo = animal.getSexo();
 	}
 	
+	public long getId() {
+		return id;
+	}
+
 	public String getNome() {
 		return nome;
 	}

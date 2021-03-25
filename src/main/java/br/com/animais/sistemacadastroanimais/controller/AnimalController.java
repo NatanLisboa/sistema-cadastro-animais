@@ -31,7 +31,7 @@ public class AnimalController {
 	private AnimalRepository animalRepository;
 	
 	@GetMapping
-	@RequestMapping("")	
+	@RequestMapping("")
 	public List<AnimalDto> listarAnimaisCadastrados(){
 		
 		List<Animal> animais = new ArrayList<>();
@@ -44,7 +44,7 @@ public class AnimalController {
 
 	
 	@GetMapping
-	@RequestMapping("/filtrar-por-nome")	
+	@RequestMapping("/filtrar-por-nome")
 	public List<AnimalDto> listarAnimaisCadastradosPorNome(String nomeAnimal){
 		
 		List<Animal> animais = new ArrayList<>();
