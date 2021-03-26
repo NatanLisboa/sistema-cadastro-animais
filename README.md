@@ -4,7 +4,7 @@ Este projeto é um sistema de cadastro de animais que utiliza uma API REST para 
 ### Começando
 Para executar o projeto, serão necessárias as seguintes dependências:
 * [JDK 8: Necessário para executar o projeto Java](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
-* [Maven 3.6.3: Necessário para realizar o build do projeto Java](https://spring.io/projects/spring-boot)
+* [Maven 3.6.3: Necessário para realizar o build do projeto Java](https://maven.apache.org/download.cgi)
 * [Eclipse para Java EE 2020-12 ou superior: Para desenvolvimento do projeto](https://www.eclipse.org/downloads/packages/)
 
 ### Desenvolvimento
