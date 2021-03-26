@@ -10,7 +10,7 @@ Para executar o projeto, serão necessárias as seguintes dependências:
 ### Desenvolvimento
 Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num diretório de sua preferência:
 
-cd "diretorio de sua preferencia"
+cd "diretorio de sua preferencia"  
 git clone https://github.com/NatanLisboa/sistema-cadastro-animais.git
 
 Continua...
