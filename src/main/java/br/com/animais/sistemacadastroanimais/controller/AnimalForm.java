@@ -7,8 +7,13 @@ import javax.validation.constraints.NotNull;
 import br.com.animais.sistemacadastroanimais.model.Animal;
 import br.com.animais.sistemacadastroanimais.model.SexoAnimal;
 
+/* Classe que define a forma de como os animais serão cadastrados pelo usuário */
 public class AnimalForm {
 	
+	/* Atributos que terão seu preenchimento requisitado no momento de cadastramento, tal que:
+	 * 	@NotNull: O atributo não pode estar nulo no momento da requisição de cadastramento
+	 * 	@NotEmpty: O valor do atributo não pode estar vazio no momento da requisição de cadastramento (Ex.: "")
+	 */
 	@NotNull @NotEmpty
 	private String nome;
 	
@@ -21,6 +26,8 @@ public class AnimalForm {
 	@NotNull
 	private SexoAnimal sexo;
 	
+	
+	/* Métodos GETTERS e SETTERS */
 	public String getNome() {
 		return nome;
 	}
@@ -52,7 +59,8 @@ public class AnimalForm {
 	public void setSexo(SexoAnimal sexo) {
 		this.sexo = sexo;
 	}
-
+	
+	/* Método que converte um objeto do tipo AnimalForm para Animal */
 	public Animal converterParaAnimal() {
 		return new Animal(nome, tipo, dataNascimento, sexo);
 	}

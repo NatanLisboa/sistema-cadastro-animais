@@ -9,8 +9,13 @@ import br.com.animais.sistemacadastroanimais.model.Animal;
 import br.com.animais.sistemacadastroanimais.model.SexoAnimal;
 import br.com.animais.sistemacadastroanimais.repository.AnimalRepository;
 
+/* Classe que define a forma de como os animais serão modificados pelo usuário */
 public class AtualizacaoAnimalForm {
 	
+	/* Atributos que terão seu preenchimento requisitado no momento de atualização, tal que:
+	 * 	@NotNull: O atributo não pode estar nulo no momento da requisição de cadastramento
+	 * 	@NotEmpty: O valor do atributo não pode estar vazio no momento da requisição de cadastramento (Ex.: "")
+	 */
 	@NotNull @NotEmpty
 	private String nome;
 	
@@ -27,6 +32,8 @@ public class AtualizacaoAnimalForm {
 		return nome;
 	}
 	
+	
+	/* Métodos GETTERS e SETTERS */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -55,6 +62,8 @@ public class AtualizacaoAnimalForm {
 		this.sexo = sexo;
 	}
 
+	
+	/* Método que atualiza o valor de um objeto do tipo Animal, retorno esse objeto atualizado  */
 	public Animal atualizarAnimal(Long id, AnimalRepository animalRepository) {
 		
 		Animal animal = animalRepository.getOne(id);

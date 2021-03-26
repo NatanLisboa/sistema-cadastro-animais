@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/* Classe para execução da aplicação */
 @SpringBootApplication
 @EnableSwagger2
 public class SistemacadastroanimaisApplication {

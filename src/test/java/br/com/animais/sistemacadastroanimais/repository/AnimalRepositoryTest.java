@@ -9,12 +9,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import br.com.animais.sistemacadastroanimais.model.Animal;
 
+/* Classe para testar os retornos do método presente na classe de produção AnimalRepository */
 @SpringBootTest
 public class AnimalRepositoryTest {
 	
 	@Autowired
-	private AnimalRepository animalRepository;
+	private AnimalRepository animalRepository; /* Objeto responsável por realizar todas as operações que envolvem o banco de dados */
 	
+	/* Método para testar se a aplicação está devolvendo uma lista com todas as características de um animal que foi buscado pelo seu nome */
 	@Test
 	public void devolverCaracteristicasAnimalExistenteBuscandoPeloNome() {
 		
@@ -26,7 +28,8 @@ public class AnimalRepositoryTest {
 		}
 		
 	}
-	
+
+	/* Método para testar se a aplicação está devolvendo uma lista vazia para uma busca por um nome de um animal que não retornou nenhuma ocorrência */
 	@Test
 	public void devolverListaVaziaParaAnimalNaoEncontradoPeloNome() {
 		
