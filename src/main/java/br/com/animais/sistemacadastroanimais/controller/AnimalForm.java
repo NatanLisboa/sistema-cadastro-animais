@@ -1,6 +1,6 @@
 package br.com.animais.sistemacadastroanimais.controller;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -16,7 +16,7 @@ public class AnimalForm {
 	private String tipo;
 	
 	@NotNull
-	private LocalDateTime dataNascimento;
+	private Date dataNascimento;
 	
 	@NotNull
 	private SexoAnimal sexo;
@@ -37,11 +37,11 @@ public class AnimalForm {
 		this.tipo = tipo;
 	}
 	
-	public LocalDateTime getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 	
-	public void setDataNascimento(LocalDateTime dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	

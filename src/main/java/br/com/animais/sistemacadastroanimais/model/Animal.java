@@ -1,6 +1,7 @@
 package br.com.animais.sistemacadastroanimais.model;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Animal {
@@ -18,7 +21,9 @@ public class Animal {
 	
 	private String nome;
 	private String tipo;
-	private LocalDateTime dataNascimento;
+	
+	@Temporal(TemporalType.DATE)
+	private Date dataNascimento;
 	
 	@Enumerated(EnumType.STRING)
 	private SexoAnimal sexo;
@@ -70,14 +75,14 @@ public class Animal {
 	
 	}
 	
-	public Animal(String nome, String tipo, LocalDateTime dataNascimento, SexoAnimal sexo) {
+	public Animal(String nome, String tipo, Date dataNascimento, SexoAnimal sexo) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.dataNascimento = dataNascimento;
 		this.sexo = sexo;
 	}
 
-	public Animal(long id, String nome, String tipo, LocalDateTime dataNascimento, SexoAnimal sexo,
+	public Animal(long id, String nome, String tipo, Date dataNascimento, SexoAnimal sexo,
 			LocalDateTime dataRegistro) {
 		this.id = id;
 		this.nome = nome;
@@ -110,23 +115,12 @@ public class Animal {
 		this.tipo = tipo;
 	}
 
-	public LocalDateTime getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(LocalDateTime dataNascimento) {
-		
-		/* Verifica se a data de nascimento inserida é inferior ou igual à data atual.
-		 * Caso não seja, a variável "dataNascimento" não recebe o valor passado. 
-		 * */
-		
-		if (dataNascimento.isBefore(LocalDateTime.now()) || dataNascimento.equals(LocalDateTime.now())) {
-			this.dataNascimento = dataNascimento;
-		}
-		else {
-			System.out.println("Data de nascimento inválida!");
-		}
-		
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public SexoAnimal getSexo() {

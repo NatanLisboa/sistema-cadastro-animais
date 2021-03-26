@@ -8,6 +8,7 @@ class SistemacadastroanimaisApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }

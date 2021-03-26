@@ -1,6 +1,6 @@
 package br.com.animais.sistemacadastroanimais.controller;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,7 +12,7 @@ public class AnimalDto {
 	private long id;
 	private String nome;
 	private String tipo;
-	private LocalDateTime dataNascimento;
+	private Date dataNascimento;
 	private SexoAnimal sexo;
 	
 	public AnimalDto(Animal animal) {
@@ -33,7 +33,7 @@ public class AnimalDto {
 	public String getTipo() {
 		return tipo;
 	}
-	public LocalDateTime getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 	public SexoAnimal getSexo() {
