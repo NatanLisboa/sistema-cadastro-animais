@@ -56,7 +56,7 @@ Com relação aos links das operações de manipulação da base de dados, tem-s
 MIT
 
 ### Observações
-Devido a uma pequena falha no mapeamento na documentação Swagger, seguem os métodos que podem ser testados no swagger-ui:
+Devido a uma pequena falha de mapeamento na documentação Swagger, seguem os métodos que podem ser testados no swagger-ui:
 * GET /animais /listarAnimaisCadastrados
 * GET /animais/{id} buscarAnimalPorId
 * PUT /animais/atualizar/{id} atualizarAnimal
