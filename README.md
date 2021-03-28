@@ -17,7 +17,7 @@ git clone https://github.com/NatanLisboa/sistema-cadastro-animais.git
 Para construir o projeto, basta executar o comando abaixo no diretório raiz (sistema-cadastro-animais) 
 ```shell
 mvn install
-````  
+````
 O comando irá baixar todas as dependências do projeto e executar os testes unitários,
 sendo que caso algum dos testes falhe, uma mensagem será exibida no console.  
 
@@ -26,7 +26,7 @@ Após a realização da etapa de construção, faz-se necessário  importar o pr
 depois de abrir a IDE:  
 ```shell
 File > Import > Maven > Existing Maven Projects > Browse > Selecionar o diretório raiz do projeto (sistema-cadastro-animais) > Finish
-```  
+```
 ### Features
 O projeto pode ser usado para simular a realização das operações de manipulação de uma base de dados de um sistema
 de cadastro de animais, como criação, recuperação, atualização e deleção de dados.
@@ -35,7 +35,7 @@ de cadastro de animais, como criação, recuperação, atualização e deleção
 Para executar os testes, basta utilizar o comando abaixo no terminal:
 ```shell
  mvn test
-```  
+```
 Os testes também podem ser executados na IDE Eclipse. Basta abrir cada classe de teste e pressionar Alt+Shift+X e depois T para rodar os testes.  
 
 ### Links internos
@@ -54,13 +54,3 @@ Com relação aos links das operações de manipulação da base de dados, tem-s
 
 ### Licença
 MIT
-
-### Observações
-Devido a uma pequena falha de mapeamento na documentação Swagger, seguem os métodos que podem ser testados no swagger-ui:
-* GET /animais /listarAnimaisCadastrados
-* GET /animais/{id} buscarAnimalPorId
-* PUT /animais/atualizar/{id} atualizarAnimal
-* POST /animais/cadastrar cadastrarAnimal
-* DELETE /animais/deletar/{id} deletarAnimal
-* GET /animais/filtrar-por-nome?nomeAnimal={nomeAnimal} listarAnimaisCadastradosPorNome
-* GET /hello 

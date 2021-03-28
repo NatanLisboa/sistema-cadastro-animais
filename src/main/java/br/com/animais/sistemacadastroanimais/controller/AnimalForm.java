@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 import br.com.animais.sistemacadastroanimais.model.Animal;
 import br.com.animais.sistemacadastroanimais.model.SexoAnimal;
 

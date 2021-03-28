@@ -44,7 +44,7 @@ public class AnimalController {
 	}
 
 	/* Método para buscar os animais cadastrados no banco de dados e listá-los, tendo como parâmetro o nome do animal procurado */
-	@GetMapping("/filtrar-por-nome")
+	@GetMapping("/filtrar-por-nome") // URI da página (nesse caso, será "/animais/filtrar-por-nome")
 	public List<AnimalDto> listarAnimaisCadastradosPorNome(String nomeAnimal){
 		
 		List<Animal> animais = new ArrayList<>();
