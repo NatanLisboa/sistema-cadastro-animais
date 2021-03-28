@@ -32,8 +32,7 @@ public class AnimalController {
 	private AnimalRepository animalRepository; // Objeto responsável por realizar todas as operações que envolvem o banco de dados
 	
 	/* Método para buscar os animais cadastrados no banco de dados e listá-los */
-	@GetMapping // Tipo da requisição
-	@RequestMapping("") // URI da página (nesse caso, será "/animais")
+	@GetMapping("") // Tipo da requisição e URI da página (nesse caso, será "/animais")
 	public List<AnimalDto> listarAnimaisCadastrados(){
 		
 		List<Animal> animais = new ArrayList<>();
@@ -45,8 +44,7 @@ public class AnimalController {
 	}
 
 	/* Método para buscar os animais cadastrados no banco de dados e listá-los, tendo como parâmetro o nome do animal procurado */
-	@GetMapping
-	@RequestMapping("/filtrar-por-nome") // URI da página (nesse caso, será "/animais/filtrar-por-nome")
+	@GetMapping("/filtrar-por-nome")
 	public List<AnimalDto> listarAnimaisCadastradosPorNome(String nomeAnimal){
 		
 		List<Animal> animais = new ArrayList<>();
@@ -71,8 +69,7 @@ public class AnimalController {
 	}
 	
 	/* Método para cadastrar animais no banco de dados */
-	@PostMapping
-	@RequestMapping("/cadastrar")
+	@PostMapping("/cadastrar")
 	public ResponseEntity<AnimalDto> cadastrarAnimal(@RequestBody @Valid AnimalForm form, UriComponentsBuilder uriBuilder) {
 		
 		Animal animal = form.converterParaAnimal(); // Método que converte um objeto do tipo AnimalForm para Animal
