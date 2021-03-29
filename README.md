@@ -48,13 +48,13 @@ Por padrão, a aplicação subirá na porta 8080 de localhost
 Para execução da documentação interna dos métodos, basta acessar: http://localhost:8080/swagger-ui.html
 
 Com relação aos links das operações de manipulação da base de dados, tem-se:
-* http://localhost:8080: Exibe a tela de boas-vindas do sistema
-* http://localhost:8080/animais: Exibe a tela com todos os animais cadastrados no banco
-* http://localhost:8080/animais/{id}: Exibe as informações de um animal em específico
-* http://localhost:8080/animais/filtrar-por-nome?nomeAnimal={nomeAnimal}: Exibe as informações de um animal em específico, buscando pelo seu nome
-* http://localhost:8080/animais/cadastrar: URI para cadastrar um animal no banco de dados do sistema
-* http://localhost:8080/animais/atualizar/{id}: URI para atualizar os dados de um animal no banco de dados do sistema
-* http://localhost:8080/animais/deletar/{id}: URI para deletar um animal no banco de dados do sistema
+* GET http://localhost:8080: Exibe a tela de boas-vindas do sistema
+* GET http://localhost:8080/animais: Exibe a tela com todos os animais cadastrados no banco de dados
+* GET http://localhost:8080/animais/{id}: Exibe as informações de um animal em específico
+* GET http://localhost:8080/animais?nome={nome}: Exibe as informações de um animal em específico, buscando pelo seu nome
+* POST http://localhost:8080/animais: URI para cadastrar um animal no banco de dados do sistema
+* PUT http://localhost:8080/animais/{id}: URI para atualizar os dados de um animal no banco de dados do sistema
+* DELETE http://localhost:8080/animais/{id}: URI para deletar um animal no banco de dados do sistema
 
 ### Licença
 MIT  
