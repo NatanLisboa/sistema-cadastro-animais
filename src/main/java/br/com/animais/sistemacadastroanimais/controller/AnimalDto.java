@@ -9,7 +9,7 @@ import br.com.animais.sistemacadastroanimais.model.SexoAnimal;
 import lombok.Getter;
 
 /* Classe que define a forma de como os animais serão exibidos na tela do usuário quando requisitados */
-@Getter /* Anotação do Lombok para criar um método get para o atributo (ou atributos da classe) que recebeu a anotação */
+@Getter /* Anotação do Lombok para criar um método get para todos os atributos da classe, nesse caso  */
 public class AnimalDto {
 	
 	/* Atributos que serão exibidos */

@@ -5,7 +5,7 @@ Este projeto é um sistema de cadastro de animais que utiliza uma API REST para 
 Para executar o projeto, serão necessárias as seguintes dependências:
 * [JDK 8: Necessário para executar o projeto Java](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
 * [Maven 3.6.3: Necessário para realizar o build do projeto Java](https://maven.apache.org/download.cgi)
-* [Eclipse para Java EE 2020-12 ou superior: Para desenvolvimento do projeto](https://www.eclipse.org/downloads/packages/)
+* [Eclipse para Java EE 2021-03: Para desenvolvimento do projeto](https://www.eclipse.org/downloads/packages/)
 * [Lombok 1.18.18: Para desenvolvimento do projeto](https://projectlombok.org/download)
 
 ### Desenvolvimento
@@ -13,7 +13,7 @@ Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num di
 ```shell
 cd "diretorio de sua preferencia"  
 git clone https://github.com/NatanLisboa/sistema-cadastro-animais.git
-```  
+```
 Para instalar o Lombok corretamente, basta seguir as instruções [deste site](https://dicasdejava.com.br/como-configurar-o-lombok-no-eclipse/#:~:text=6.,do%20seu%20pom.)
 (EXCETO O PASSO 6, pois o Lombok já está adicionado como dependência no arquivo "pom.xml" do projeto).
 

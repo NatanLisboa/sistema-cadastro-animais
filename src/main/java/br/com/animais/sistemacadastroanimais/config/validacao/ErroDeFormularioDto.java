@@ -1,6 +1,6 @@
 package br.com.animais.sistemacadastroanimais.config.validacao;
 
-/* Classe que contém os detalhes de erro personalizados que podem ocorrer em alguma requisição, substituindo o JSON padrão */
+/* Classe que contém os detalhes de erro personalizados que podem ocorrer em alguma requisição, substituindo o JSON padrão por um personalizado */
 public class ErroDeFormularioDto {
 
 	private String campo; // Atributo que contém o campo do erro 

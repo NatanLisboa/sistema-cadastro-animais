@@ -32,29 +32,21 @@ public class AnimalController {
 	private AnimalRepository animalRepository; // Objeto responsável por realizar todas as operações que envolvem o banco de dados
 	
 	/* Método para buscar os animais cadastrados no banco de dados e listá-los */
-	@GetMapping("") // Tipo da requisição e URI da página (nesse caso, será "/animais")
-	public List<AnimalDto> listarAnimaisCadastrados(){
+	@GetMapping // Tipo da requisição e URI da página (nesse caso, será "/animais" para listar todos ou /animais?nome={nome} para listar animais pelo seu nome)
+	public List<AnimalDto> listarTodosOsAnimaisCadastradosOuListarPeloNome(String nome){
 		
 		List<Animal> animais = new ArrayList<>();
 		
-		animais = animalRepository.findAll();
+		if (nome == null) {
+			animais = animalRepository.findAll();
+		} else {
+			animais = animalRepository.findByNome(nome);
+		}
 		
 		return AnimalDto.converter(animais); // Função que converte um objeto do tipo Animal para AnimalDto, a fim de se adequar ao tipo de retorno do método em questão
 		
 	}
 
-	/* Método para buscar os animais cadastrados no banco de dados e listá-los, tendo como parâmetro o nome do animal procurado */
-	@GetMapping("/filtrar-por-nome") // URI da página (nesse caso, será "/animais/filtrar-por-nome")
-	public List<AnimalDto> listarAnimaisCadastradosPorNome(String nomeAnimal){
-		
-		List<Animal> animais = new ArrayList<>();
-		
-		animais = animalRepository.findByNome(nomeAnimal);
-		
-		return AnimalDto.converter(animais);
-		
-	}
-	
 	/* Método para buscar os animais cadastrados no banco de dados e listá-los, tendo como parâmetro o id do animal procurado */
 	@GetMapping("/{id}")
 	public ResponseEntity<AnimalDto> buscarAnimalPorId(@PathVariable long id) {
@@ -66,30 +58,30 @@ public class AnimalController {
 		}
 		
 		return ResponseEntity.notFound().build(); //Retorna o código HTTP 404, caso ele não seja encontrado no banco de dados.
-	}
+	}	
 	
 	/* Método para cadastrar animais no banco de dados */
-	@PostMapping("/cadastrar")
+	@PostMapping
 	public ResponseEntity<AnimalDto> cadastrarAnimal(@RequestBody @Valid AnimalForm form, UriComponentsBuilder uriBuilder) {
 		
 		Animal animal = form.converterParaAnimal(); // Método que converte um objeto do tipo AnimalForm para Animal
 		animalRepository.save(animal); // Grava o animal no banco de dados
 		
-		URI uri = uriBuilder.path("/animais/cadastrar/{id}").buildAndExpand(animal.getId()).toUri(); //Variável que contém 
-		return ResponseEntity.created(uri).body(new AnimalDto(animal)); // Retorna o código HTTP 201 e o animal criado
+		URI uri = uriBuilder.path("/animais/{id}").buildAndExpand(animal.getId()).toUri(); // Variável que contém a URI criada para ser exibida após o cadastramento com êxito de um novo animal, representando a URI onde se encontra o novo animal
+		return ResponseEntity.created(uri).body(new AnimalDto(animal)); // Retorna o código HTTP 201 e os dados do animal criado
 		
 	}
 	
-	/* Método para modificar animais no banco de dados */
-	@PutMapping("/atualizar/{id}")
-	@Transactional // Notação que fará com que qualquer modificação realizada nos objetos seja repassada (commitada) para o banco de dados
+	/* Método para atualizar os dados de animais do banco de dados */
+	@PutMapping("/{id}")
+	@Transactional 
 	public ResponseEntity<AnimalDto> atualizarAnimal(@PathVariable Long id, @RequestBody @Valid AtualizacaoAnimalForm form) {
 		
 		Optional<Animal> animalParaBusca = animalRepository.findById(id); // Busca o animal desejado para atualização por id
 		
 		if (animalParaBusca.isPresent()) {
 			Animal animal = form.atualizarAnimal(id, animalRepository); // Atualiza o animal com o id passado como parâmetro
-			return ResponseEntity.ok(new AnimalDto(animal)); // Retorna o código HTTP 200 e o animal modificado, caso tudo seja concluído com sucesso.
+			return ResponseEntity.ok(new AnimalDto(animal)); // Retorna o código HTTP 200 e os dados do animal modificado, caso tudo seja concluído com sucesso.
 		}
 		
 		return ResponseEntity.notFound().build(); // Retorna o código HTTP 404 caso o animal não seja encontrado no banco de dados
@@ -97,7 +89,7 @@ public class AnimalController {
 	}
 	
 	/* Método para deletar animais do banco de dados */
-	@DeleteMapping("/deletar/{id}")
+	@DeleteMapping("/{id}")
 	@Transactional
 	public ResponseEntity<?> deletarAnimal(@PathVariable Long id) {
 		

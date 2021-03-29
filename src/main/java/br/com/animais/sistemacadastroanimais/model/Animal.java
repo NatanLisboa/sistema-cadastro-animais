@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Entity /* Notação que informa ao programa que essa classe representará uma entidade no banco de dados */
 public class Animal {
 	
-	@Id /* Notação que informa ao programa que esse atributo representará o campo identificador (chave primária) no banco de dados */
+	@Id /* Notação para definir o campo id como campo identificador (chave primária) no banco de dados */
 	@GeneratedValue(strategy = GenerationType.IDENTITY) /* Notação que informa ao programa que, no momento do mapeamento objeto-relacional, a constraint IDENTITY será utilizada, a fim de gerar os valores para os ids dos registros automaticamente */
 	private long id;
 

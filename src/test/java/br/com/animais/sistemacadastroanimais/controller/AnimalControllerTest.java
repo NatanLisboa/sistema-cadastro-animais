@@ -19,11 +19,11 @@ public class AnimalControllerTest {
 	@Autowired
 	private MockMvc mockMvc; // Objeto para realizar as requisições HTTP
 	
-	/* Método que testa se o código HTTP 200 está sendo devolvido na busca de um animal existente no banco de dados (por id) */
+	/* Método que testa se o código HTTP 200 está sendo devolvido na URI para listagem de todos os animais presentes no banco de dados */
 	@Test
-	void devolver200NaBuscaPorIdDeUmAnimalExistenteNoBanco() throws Exception {
+	void devolver200NaListagemDeTodosOsAnimaisPresentesNoBancoDeDados() throws Exception {
 		
-		URI uri = new URI("/animais/1"); // URI para acesso de uma rota do sistema
+		URI uri = new URI("/animais"); // URI para acesso de uma rota do sistema
 		
 		// Criação da requisição e teste para verificar se ela está retornando o código HTTP esperado
 		mockMvc
@@ -36,9 +36,58 @@ public class AnimalControllerTest {
 				.is(200));
 	}
 	
+	/* Método que testa se o código HTTP 200 está sendo devolvido na filtragem de um animal existente pelo seu nome */
+	@Test
+	void devolver200NaFiltragemDeAnimaisExistentesPeloNome() throws Exception {
+		
+		URI uri = new URI("/animais?nome=Max");
+		
+		mockMvc
+		.perform(MockMvcRequestBuilders
+				.get(uri)
+				.contentType(MediaType.APPLICATION_JSON
+				))
+		.andExpect(MockMvcResultMatchers
+				.status()
+				.is(200));
+	}
+	
+	/* Método que testa se o código HTTP 200 está sendo devolvido na filtragem de um animal inexistente no banco de dados, buscando pelo seu nome */
+	@Test
+	void devolver200NaFiltragemDeAnimaisInexistentesPeloNome() throws Exception {
+		
+		URI uri = new URI("/animais?nome=Spyke");
+		
+		mockMvc
+		.perform(MockMvcRequestBuilders
+				.get(uri)
+				.contentType(MediaType.APPLICATION_JSON
+				))
+		.andExpect(MockMvcResultMatchers
+				.status()
+				.is(200));
+	}
+
+	
+	/* Método que testa se o código HTTP 200 está sendo devolvido na busca de um animal existente no banco de dados (por id) */
+	@Test
+	void devolver200NaBuscaPorIdDeUmAnimalExistenteNoBancoDeDados() throws Exception {
+		
+		URI uri = new URI("/animais/1");
+		
+		mockMvc
+		.perform(MockMvcRequestBuilders
+				.get(uri)
+				.contentType(MediaType.APPLICATION_JSON
+				))
+		.andExpect(MockMvcResultMatchers
+				.status()
+				.is(200));
+	}
+	
 	/* Método que testa se o código HTTP 404 está sendo devolvido na busca de um animal inexistente no banco de dados (por id) */
 	@Test
-	void devolver404NaBuscaDeUmAnimalInexistenteNoBanco() throws Exception {
+	void devolver404NaBuscaDeUmAnimalInexistenteNoBancoDeDados() throws Exception {
 			
 		URI uri = new URI("/animais/999");
 
@@ -54,8 +103,8 @@ public class AnimalControllerTest {
 
 	/* Método que testa se o código HTTP 201 está sendo retornado na criação com êxito de um animal no banco de dados */	
 	@Test
-	void devolver201NaCriacaoDeUmAnimalNoBanco() throws Exception {
-		URI uri = new URI("/animais/cadastrar");
+	void devolver201NaCriacaoDeUmAnimalNoBancoDeDados() throws Exception {
+		URI uri = new URI("/animais");
 		String json = "{"
 						+ "\"nome\": \"Arthus\","
 						+ "\"tipo\": \"Cachorro\","
@@ -76,8 +125,8 @@ public class AnimalControllerTest {
 
 	/* Método que testa se o código HTTP 200 está sendo retornado na atualização com êxito de um animal no banco de dados */	
 	@Test
-	void devolver200NaAtualizacaoComExitoDeUmAnimalNoBanco() throws Exception {
-		URI uri = new URI("/animais/atualizar/2");
+	void devolver200NaAtualizacaoComExitoDeUmAnimalNoBancoDeDados() throws Exception {
+		URI uri = new URI("/animais/2");
 		String json = "{"
 						+ "\"nome\": \"Frida\","
 						+ "\"tipo\": \"Cachorro\","
@@ -100,8 +149,8 @@ public class AnimalControllerTest {
 
 	/* Método que testa se o código HTTP 404 está sendo retornado na tentativa de atualização de um animal inexistente no banco de dados */	
 	@Test
-	void devolver404NaTentativaDeAtualizacaoDeUmAnimalInexistenteNoBanco() throws Exception {
-		URI uri = new URI("/animais/atualizar/999");
+	void devolver404NaTentativaDeAtualizacaoDeUmAnimalInexistenteNoBancoDeDados() throws Exception {
+		URI uri = new URI("/animais/999");
 		String json = "{"
 						+ "\"nome\": \"Pintado\","
 						+ "\"tipo\": \"Onça\","
@@ -123,9 +172,9 @@ public class AnimalControllerTest {
 	
 	/* Método que testa se o código HTTP 200 está sendo retornado na deleção com êxito de um animal do banco de dados */		
 	@Test
-	void devolver200NaDelecaoComExitoDeUmAnimalExistenteNoBanco() throws Exception {
+	void devolver200NaDelecaoComExitoDeUmAnimalExistenteNoBancoDeDados() throws Exception {
 		
-		URI uri = new URI("/animais/deletar/3");
+		URI uri = new URI("/animais/3");
 		
 		mockMvc
 		.perform(MockMvcRequestBuilders
@@ -139,9 +188,9 @@ public class AnimalControllerTest {
 	
 	/* Método que testa se o código HTTP 404 está sendo retornado na tentativa de deleção de um animal inexistente no banco de dados */	
 	@Test
-	void devolver404NaTentativaDeDelecaoDeUmAnimalInexistenteNoBanco() throws Exception {
+	void devolver404NaTentativaDeDelecaoDeUmAnimalInexistenteNoBancoDeDados() throws Exception {
 		
-		URI uri = new URI("/animais/deletar/999");
+		URI uri = new URI("/animais/999");
 		
 		mockMvc
 		.perform(MockMvcRequestBuilders

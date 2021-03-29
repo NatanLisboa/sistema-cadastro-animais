@@ -27,7 +27,7 @@ public class ErroDeValidacaoHandler {
 		List<ErroDeFormularioDto> dto = new ArrayList<>(); // Objeto que será responsável por formatar os erros de uma forma que os mesmos fiquem mais legíveis no arquivo JSON
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors(); // O objeto "exception" contém todos os erros ocorridos nos campos na tentativa de requisição
 		
-		//Para cada erro contido na lista "fieldErrors", a mensagem é traduzida para o idioma local (no caso, português) e é formatada de acordo as especificações da classe erro de formulário DTO
+		//Para cada erro contido na lista "fieldErrors", a mensagem é traduzida para o idioma local (no caso, português) e é formatada de acordo as especificações da classe "ErroDeFormularioDto"
 		fieldErrors.forEach(e -> {
 			String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale());
 			ErroDeFormularioDto erro = new ErroDeFormularioDto(e.getField(), mensagem);
