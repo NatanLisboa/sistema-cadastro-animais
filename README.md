@@ -53,4 +53,8 @@ Com relação aos links das operações de manipulação da base de dados, tem-s
 * http://localhost:8080/animais/deletar/{id}: URI para deletar um animal no banco de dados do sistema
 
 ### Licença
-MIT
+MIT  
+
+### Observações
+
+* O projeto pode demorar um pouco para começar a rodar

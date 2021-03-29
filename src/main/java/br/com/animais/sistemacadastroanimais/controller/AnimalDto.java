@@ -6,8 +6,10 @@ import java.util.stream.Collectors;
 
 import br.com.animais.sistemacadastroanimais.model.Animal;
 import br.com.animais.sistemacadastroanimais.model.SexoAnimal;
+import lombok.Getter;
 
 /* Classe que define a forma de como os animais serão exibidos na tela do usuário quando requisitados */
+@Getter /* Anotação do Lombok para criar um método get para o atributo (ou atributos da classe) que recebeu a anotação */
 public class AnimalDto {
 	
 	/* Atributos que serão exibidos */
@@ -24,24 +26,6 @@ public class AnimalDto {
 		this.tipo = animal.getTipo();
 		this.dataNascimento = animal.getDataNascimento();
 		this.sexo = animal.getSexo();
-	}
-	
-	/* Métodos GETTERS (os métodos SETTERS não serão necessários nesse caso, uma vez que não haverá manipulação dos dados) */
-	public long getId() {
-		return id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-	public String getTipo() {
-		return tipo;
-	}
-	public Date getDataNascimento() {
-		return dataNascimento;
-	}
-	public SexoAnimal getSexo() {
-		return sexo;
 	}
 	
 	/* Método que converte uma lista de objetos do tipo Animal para AnimalDto, a fim de que este último seja exibido para o usuário*/
