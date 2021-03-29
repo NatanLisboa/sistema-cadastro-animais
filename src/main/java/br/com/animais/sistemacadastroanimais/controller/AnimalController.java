@@ -37,10 +37,10 @@ public class AnimalController {
 		
 		List<Animal> animais = new ArrayList<>();
 		
-		if (nome == null) {
+		if (nome == null) { // Se a variável "nome" não for preenchida na URI (Ex.: /animais), todos os animais existentes no banco de dados serão listados
 			animais = animalRepository.findAll();
-		} else {
-			animais = animalRepository.findByNome(nome);
+		} else { // Senão, se a variável "nome" for preenchida na URI (Ex.: /animais?nome={nome}), os animais com o nome correspondente serão listados
+			animais = animalRepository.findByNome(nome); 
 		}
 		
 		return AnimalDto.converter(animais); // Função que converte um objeto do tipo Animal para AnimalDto, a fim de se adequar ao tipo de retorno do método em questão
